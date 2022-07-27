@@ -2,7 +2,7 @@ NAME		= contact
 
 CC			=	c++
 
-CPPFLAGS	=	-Wall -Wextra -Werror  -std=c++98
+CPPFLAGS	=	-Wall -Wextra   -std=c++98
 
 
 SRC			= 	./Contact.cpp \
@@ -12,7 +12,7 @@ SRC			= 	./Contact.cpp \
 OBJ			=	$(SRC:%.cpp=%.o)
 
 
-%.o:%.cpp *.h
+%.o:%.cpp *.hpp
 	@$(CC) $(CPPFLAGS)  -c $< -o $@
 	@printf "\033[0;32m\e[1m%s\033[0m\n" "Compiling..."
 

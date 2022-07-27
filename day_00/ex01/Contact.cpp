@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:29:56 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/26 17:18:36 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/27 18:56:56 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ Contact::Contact(std::string firstName, std::string lastName, std::string nickna
 	_nickname = nickname;
 	_darkestSecret = darkestSecret;
 	_phoneNumber = phoneNumber;
-	std::cout << "a new contact has been created" << '\n';
 }
 
 Contact::~Contact()
@@ -37,4 +36,13 @@ void Contact::display()
 	std::cout << "nickname      :" << _nickname << std::endl;
 	std::cout << "darkestSecret :" << _darkestSecret << std::endl;
 	std::cout << "phoneNumber   :" << _phoneNumber << std::endl;
+}
+
+void Contact::displayColumns(int id){
+	
+	std::cout 	<< "|" << std::right << std::setw(10) << id++
+				<< "|" << std::right << std::setw(10) << _firstName.substr(0,9) << "." 
+				<< "|" << std::right << std::setw(10) << _lastName.substr(0,9) << "."
+				<< "|" << std::right << std::setw(10) << _nickname.substr(0,9) << "." 
+				<< "|" << '\n';	
 }

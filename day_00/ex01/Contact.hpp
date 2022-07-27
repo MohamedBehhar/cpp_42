@@ -2,6 +2,7 @@
 #define CONTACT_H
 #include <iostream>
 #include <string.h>
+#include <iomanip>
 
 
 class Contact
@@ -16,6 +17,7 @@ public:
 	Contact(/* args */);
 	Contact(std::string firstName, std::string lastName, std::string nickname, std::string darkestSecret, std::string phoneNumber);
 	void display();
+	void displayColumns(int id);
 	~Contact();
 };
 

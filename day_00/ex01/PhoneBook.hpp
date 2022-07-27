@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 18:20:59 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/26 18:46:11 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/27 16:23:36 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ private:
 	int		id;
 public:
 	PhoneBook();
-	void	Add(std::string *info, int id);
-	void	SEARCH();
+	void	ADD(std::string *info, int id);
+	void	SEARCH(int id);
+	void	EXIT();
 };
 
 
