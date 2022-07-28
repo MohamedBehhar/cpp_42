@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:48:47 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/27 17:09:10 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/28 17:29:25 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int main()
 	std::string fields[5];
 	std::string buf;
 
-
 	fields_assignement(fields);
 	while (true)
 	{
@@ -76,10 +75,7 @@ int main()
 			}
 			if (checkFields(info) == true)
 			{
-				if (id <= 7)
-					contact.ADD(info, id);
-				else
-					contact.ADD(info, id % 8);
+				contact.ADD(info, id % 8);
 				id++;
 			}
 		}

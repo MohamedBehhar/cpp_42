@@ -18,6 +18,7 @@ public:
 	Contact(std::string firstName, std::string lastName, std::string nickname, std::string darkestSecret, std::string phoneNumber);
 	void display();
 	void displayColumns(int id);
+	void displayAllColumns(int id);
 	~Contact();
 };
 
