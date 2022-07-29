@@ -1,8 +1,8 @@
-NAME		= contact
+NAME		= phonebook
 
 CC			=	c++
 
-CPPFLAGS	=	-Wall -Wextra   -std=c++98
+CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 
 SRC			= 	./Contact.cpp \
@@ -13,18 +13,17 @@ OBJ			=	$(SRC:%.cpp=%.o)
 
 
 %.o:%.cpp *.hpp
-	@$(CC) $(CPPFLAGS)  -c $< -o $@
-	@printf "\033[0;32m\e[1m%s\033[0m\n" "Compiling..."
+	$(CC) $(CPPFLAGS)  -c $< -o $@
 
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	@$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	@rm -rf $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME)
+	rm -f $(NAME)
 
 re: clean all

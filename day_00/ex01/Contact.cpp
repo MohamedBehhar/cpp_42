@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 13:29:56 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/28 18:52:00 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/29 14:01:41 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,27 @@ Contact::~Contact()
 {
 }
 
+std::string checkInfoLen(std::string str)
+{
+	return (str.length() < 10 ? str : str.substr(0, 9).append("."));
+}
+
 void Contact::displayColumns(int id)
 {
 	std::cout << "|" << std::right << std::setw(10) << id + 1
-			  << "|" << std::right << std::setw(10) << _firstName.substr(0, 9).append(".")
-			  << "|" << std::right << std::setw(10) << _lastName.substr(0, 9).append(".")
-			  << "|" << std::right << std::setw(10) << _nickname.substr(0, 9).append(".") << "|" << '\n';
+			  << "|" << std::right << std::setw(10) << checkInfoLen(_firstName)
+			  << "|" << std::right << std::setw(10) << checkInfoLen(_lastName)
+			  << "|" << std::right << std::setw(10) << checkInfoLen(_nickname) << "|" << '\n';
 }
 
-void Contact::displayAllColumns(int id)
+void Contact::displaySingleContact(int id)
 {
+	std::cout << "*-------------------------------------------*" << '\n';
+	std::cout << "*               CONTACT INFO                *" << '\n';
 	std::cout << "*___________________________________________*" << '\n';
-	std::cout 	<< std::right << std::setw(10) << "index        :" << id + 1 << '\n'
-				<< std::right << std::setw(10) << "firstName    :" << _firstName << '\n'
-				<< std::right << std::setw(10) << "lastName     :" << _lastName<< '\n'
-				<< std::right << std::setw(10) << "nickName     :" << _nickname<< '\n'
-				<< std::right << std::setw(10) << "phoneNumber  :" << _phoneNumber<< '\n';
+	std::cout << std::right << std::setw(10) << "index        :" << id + 1 << '\n'
+			  << std::right << std::setw(10) << "firstName    :" << _firstName << '\n'
+			  << std::right << std::setw(10) << "lastName     :" << _lastName << '\n'
+			  << std::right << std::setw(10) << "nickName     :" << _nickname << '\n'
+			  << std::right << std::setw(10) << "phoneNumber  :" << _phoneNumber << '\n';
 }

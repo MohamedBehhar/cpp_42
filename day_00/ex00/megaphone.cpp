@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:55:39 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/18 13:47:03 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/29 13:50:15 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 	i = 0;
 	while (str[i])
 	{
-		std::cout << (char) toupper(str[i]);
+		std::cout << (char)toupper(str[i]);
 		i++;
 	}
 	std::cout << std::endl;

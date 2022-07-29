@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 12:48:47 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/28 17:29:25 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/07/29 14:15:58 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,18 @@ bool	checkFields(std::string *fields)
 	return (true);
 }
 
+void displayCommands()
+{
+	std::cout << "*********************************************" << '\n';
+	std::cout << "|" << std::setw(43) 
+			  << "           <-ENTER A COMMAND->            " << "|" << '\n';
+	std::cout << "|" << std::internal << std::setw(13) << "ADD     "
+			  << "|" << std::internal << std::setw(15) << "SEARCH   "
+			  << "|" << std::internal << std::setw(13) << "EXIT    "
+			  << "|" << '\n';
+	std::cout << "*********************************************" << '\n';
+}
+
 int main()
 {
 	int i = 0;
@@ -60,9 +72,10 @@ int main()
 	fields_assignement(fields);
 	while (true)
 	{
+		displayCommands();
 		if (getline(std::cin, buf).eof() == true)
 		{	
-			return (1);
+			return (0);
 		}
 		if (buf == "ADD")
 		{
@@ -70,7 +83,8 @@ int main()
 			while (i < 5)
 			{
 				std::cout << fields[i] ;
-				getline(std::cin, info[i], '\n');
+				if (getline(std::cin, info[i], '\n').eof() == true)
+					return (0);
 				i++;
 			}
 			if (checkFields(info) == true)
@@ -78,6 +92,8 @@ int main()
 				contact.ADD(info, id % 8);
 				id++;
 			}
+			else
+			std::cout << "==>ERROR: A FIELD OR MORE IS EMPTY<==" << '\n';
 		}
 		else if (buf == "SEARCH")
 			contact.SEARCH(id);

@@ -6,7 +6,7 @@
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/26 12:42:13 by mbehhar           #+#    #+#              #
-#    Updated: 2022/07/26 12:42:14 by mbehhar          ###   ########.fr        #
+#    Updated: 2022/07/29 16:32:05 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC			= 	./megaphone.cpp
 OBJ			=	$(SRC:%.cpp=%.o)
 
 
-%.o:%.cpp *.h
+%.o:%.cpp
 	@$(CC) $(CPPFLAGS)  -c $< -o $@
 	@printf "\033[0;32m\e[1m%s\033[0m\n" "Compiling..."
 
