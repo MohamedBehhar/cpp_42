@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 12:55:39 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/07/29 13:50:15 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/02 17:59:39 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cctype>
 #include <iomanip>
 
-int main()
+int main(int ac, char *av[])
 {
 	int	i;
 	std::string str = "";

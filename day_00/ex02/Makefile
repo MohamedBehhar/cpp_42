@@ -6,7 +6,7 @@
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/29 16:30:16 by mbehhar           #+#    #+#              #
-#    Updated: 2022/07/29 16:32:59 by mbehhar          ###   ########.fr        #
+#    Updated: 2022/08/02 18:38:05 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ CPPFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 SRC			= 	./Account.cpp \
 				./tests.cpp \
+				# ./main.cpp \
 
 OBJ			=	$(SRC:%.cpp=%.o)
 
