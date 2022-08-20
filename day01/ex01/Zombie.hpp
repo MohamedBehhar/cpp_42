@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 19:02:20 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 12:43:15 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/19 18:44:28 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/20 15:32:10 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
+#include <iostream>
+#include "Zombie.h"
 
-Zombie* newZombie( std::string name ){
-	Zombie *ptrNewZombie = new Zombie(name);
-	return (ptrNewZombie);
-}
+class Zombie{
+	private:
+		std::string _name;
+	public:
+		Zombie();
+		void setName(std::string name);
+		~Zombie();
+		void annouce(void);
+};
+
+#endif

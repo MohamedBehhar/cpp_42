@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 19:02:20 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 12:43:15 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/19 18:44:22 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/20 15:56:18 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name ){
-	Zombie *ptrNewZombie = new Zombie(name);
-	return (ptrNewZombie);
+Zombie::Zombie(){
+	std::cout << "Default constructor has been called" << std::endl;
+}
+
+void Zombie::setName(std::string name ){
+	_name = name;
+	std::cout << "setName has been called" << std::endl;
+}
+
+Zombie::~Zombie(){
+	std::cout << _name << ": has been destroid" << std::endl;
+}
+
+void Zombie::annouce(void){
+	std::cout << _name + ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

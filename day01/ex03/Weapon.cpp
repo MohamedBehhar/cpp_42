@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 19:02:20 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 12:43:15 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/20 17:04:23 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/20 17:49:07 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie* newZombie( std::string name ){
-	Zombie *ptrNewZombie = new Zombie(name);
-	return (ptrNewZombie);
+Weapon::Weapon(/* args */)
+{
+	std::cout << "Default constructor has been called" << std::endl;
+}
+
+Weapon::~Weapon()
+{
+	std::cout << "Destructor has been called" << std::endl;
+}
+
+void Weapon::setType(std::string type){
+	_type = type;
+}
+
+const std::string& Weapon::getType(void){
+	const std::string& typeRef = _type;
+	return typeRef;
 }

@@ -5,30 +5,25 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/20 17:04:51 by mbehhar           #+#    #+#              #
-#    Updated: 2022/08/20 17:04:52 by mbehhar          ###   ########.fr        #
+#    Created: 2022/08/20 17:04:42 by mbehhar           #+#    #+#              #
+#    Updated: 2022/08/20 17:04:43 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	zombie
+NAME		= 	ref
 
 CXX			=	c++
 
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-
-SRC			=	Zombie.cpp     	\
-				newZombie.cpp  	\
-				randomChump.cpp \
-				main.cpp 
+SRC			=	main.cpp
 
 OBJ			=	$(SRC:%.cpp=%.o)
 
-
-%.o:%.cpp *.hpp *.h
+%.o:%.cpp
 	$(CXX) $(CXXFLAGS)  -c $< -o $@
 
-all : $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
@@ -36,7 +31,8 @@ $(NAME): $(OBJ)
 clean:
 	rm -rf $(OBJ)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:
+	rm -rf $(OBJ)
+	rm -rf $(NAME)
 
-re: clean all
+re: fclean all

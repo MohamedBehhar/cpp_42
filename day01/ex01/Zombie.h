@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/19 19:02:20 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 12:43:15 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/20 12:55:55 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/20 14:58:37 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name ){
-	Zombie *ptrNewZombie = new Zombie(name);
-	return (ptrNewZombie);
-}
+class Zombie;
+Zombie* zombieHorde( int N, std::string name );
+
+#endif
