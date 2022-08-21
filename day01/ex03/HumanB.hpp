@@ -19,7 +19,7 @@ class HumanB
 {
 private:
 	std::string _name;
-	Weapon _WeaponB;
+	Weapon *_WeaponB;
 public:
 	HumanB(/* args */);
 	~HumanB();

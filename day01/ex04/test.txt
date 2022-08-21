@@ -1,0 +1,12 @@
+total 64
+drwxrwxr-x 2 mohamed mohamed  4096 Aug 21 22:31 .
+drwxrwxr-x 7 mohamed mohamed  4096 Aug 21 21:47 ..
+-rw-rw-r-- 1 mohamed mohamed   314 Aug 21 22:28 main.cpp
+-rw-rw-r-- 1 mohamed mohamed  4792 Aug 21 22:29 main.o
+-rw-rw-r-- 1 mohamed mohamed   325 Aug 21 22:20 Makefile
+-rwxrwxr-x 1 mohamed mohamed 18992 Aug 21 22:29 replace
+-rw-rw-r-- 1 mohamed mohamed   189 Aug 21 22:21 replace.h
+-rw-rw-r-- 1 mohamed mohamed   565 Aug 21 22:31 test.text
+-rw-rw-r-- 1 mohamed mohamed     0 Aug 21 22:31 test.txt
+-rw-rw-r-- 1 mohamed mohamed   371 Aug 21 22:19 utils.cpp
+-rw-rw-r-- 1 mohamed mohamed  4656 Aug 21 22:29 utils.o

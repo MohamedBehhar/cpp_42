@@ -28,9 +28,10 @@ HumanB::HumanB(std::string name){
 }
 
 void HumanB::attack(){
-	std::cout << _name << " attacks with their" << _WeaponB.getType() << std::endl; 
+	std::cout << _name << " attacks with their " << _WeaponB->getType() << std::endl; 
 }
 
 void HumanB::setWeapon(Weapon weapon){
-	_WeaponB = weapon;
+	_WeaponB = &weapon;
+	std::cout << "HUMAN_B Set weapon has been called" << std::endl;
 }
