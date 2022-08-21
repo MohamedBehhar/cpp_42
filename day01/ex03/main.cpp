@@ -6,17 +6,30 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:18 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 17:51:19 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:18:40 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int main(){
-	Weapon weaponObj;
-	weaponObj.setType("Saifo nare");
-	
-	
-	std::cout << "Geting the weapon type: " <<weaponObj.getType() << std::endl;
-	return (0);
+int main()
+{
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

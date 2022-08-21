@@ -6,27 +6,33 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:23 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 17:49:07 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:45:31 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(/* args */)
+Weapon::Weapon()
 {
-	std::cout << "Default constructor has been called" << std::endl;
+	// std::cout << "WEAPON Default constructor has been called" << std::endl;
 }
+
+Weapon::Weapon(std::string type){
+	_type = type;
+	// std::cout << "WEAPON Parametrized constructor has been called" << std::endl;
+};
+
 
 Weapon::~Weapon()
 {
-	std::cout << "Destructor has been called" << std::endl;
+	// std::cout << "WEAPON Destructor has been called" << std::endl;
 }
 
 void Weapon::setType(std::string type){
 	_type = type;
 }
 
-const std::string& Weapon::getType(void){
-	const std::string& typeRef = _type;
-	return typeRef;
+const std::string& Weapon::getType()
+{
+	return (_type);
 }

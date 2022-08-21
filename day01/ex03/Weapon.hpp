@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:26 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 17:42:34 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/21 18:27:21 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ class Weapon
 	private:
 		std::string _type;
 	public:
-		Weapon(/* args */);
+		Weapon();
+		Weapon(std::string type);
 		~Weapon();
 		void setType(std::string type);
 		const std::string& getType(void);

@@ -6,7 +6,7 @@
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/20 17:04:21 by mbehhar           #+#    #+#              #
-#    Updated: 2022/08/20 17:49:35 by mbehhar          ###   ########.fr        #
+#    Updated: 2022/08/21 18:32:47 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC			=	main.cpp \
 OBJ			=	$(SRC:%.cpp=%.o)
 
 
-%.o:%.cpp *.hpp *.h
+%.o:%.cpp *.hpp
 	$(CXX) $(CXXFLAGS)  -c $< -o $@
 
 all : $(NAME)
