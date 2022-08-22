@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:16 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/21 18:51:48 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/22 13:20:01 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	HumanB(/* args */);
 	~HumanB();
 	HumanB(std::string name);
-	void setWeapon(Weapon weapon);
+	void setWeapon(Weapon &weapon);
 	void attack();
 };
 
