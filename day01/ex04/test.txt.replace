@@ -1,2 +1,12 @@
-total 64
-drwxrwxr-x 2 
+koko  candidate    408 Aug 23 17:02 .
+drwxr-xr-x   9 koko  candidate    306 Aug 19 13:24 ..
+-rw-r--r--   1 koko  candidate    325 Aug 22 12:47 Makefile
+-rwxr-xr-x   1 koko  candidate  53888 Aug 22 17:11 a.out
+-rw-r--r--   1 mbehhar  candidate   1515 Aug 23 17:02 main.cpp
+-rw-r--r--   1 koko  candidate  67704 Aug 23 17:02 main.o
+-rwxr-xr-x   1 mbehhar  candidate  96368 Aug 23 17:02 replace
+-rw-r--r--   1 koko  candidate    189 Aug 22 12:47 replace.h
+-rw-r--r--   1 mbehhar  candidate      0 Aug 23 17:02 test.txt
+-rw-r--r--   1 koko  candidate     90 Aug 23 17:02 test.txt.replace
+-rw-r--r--   1 mbehhar  candidate    371 Aug 22 12:47 utils.cpp
+-rw-r--r--   1 koko  candidate   8820 Aug 23 16:54 utils.o

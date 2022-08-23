@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace.h                                          :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 17:17:58 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/23 17:17:59 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/23 17:19:56 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/23 18:15:47 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef REPLACE_H
-#define REPLACE_H
+#ifndef HARL_CPP
+#define HARL_CPP
 
 #include <iostream>
-#include <fstream>
-#define LOG std::cout
+#define LOG std::cout 
 #define N std::endl
 
-bool	isAllSpaces(std::string str);
-bool	parseArg(char *av[]);
+class Harl
+{
+private:
+	void debug( void );
+	void info( void );
+	void warning( void );
+	void error( void );
+public:
+	Harl(/* args */);
+	~Harl();
+	void complain( std::string level );
+};
+
 
 
 #endif

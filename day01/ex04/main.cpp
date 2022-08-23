@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/23 17:17:27 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/23 17:17:28 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "replace.h"
-
+#include <unistd.h>
 void findAndReplace(std::string big, std::string little)
 {
 	int i;
@@ -41,27 +53,39 @@ int main(int ac, char *av[])
 	std::string buf;
 	getline(file, buf, (char)EOF);
 	file.close();
-	LOG << buf << N;
 
 	// find and replace
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 	std::string fileName = av[1];
-	std::ofstream newFile(fileName + ".replace");
-	size_t i;
+	std::fstream newFile;
+	newFile.open(fileName + ".replace", std::ios::out);
+	if (!file)
+	{
+		LOG << "file error" << N;
+		return (1);
+	}
 	bool flag = true;
-
-	i = buf.find(av[2], 0, std::string(av[3]).length());
+	std::string tmp;
+	size_t i = 0;
+	i = buf.find(av[2], i, std::string(av[2]).length());
 	i == std::string::npos ? flag = false : flag = true;
-	flag == true ? newFile << buf.substr(0, i) : 0 ;
-	LOG << buf.substr(0, i) << N;
 	while (flag)
 	{
-		std::string temp = 
-		newFile << buf.substr(i, i) 
-		LOG << buf.substr(i, s1.length()) << N;
-		i = buf.find(av[2], (int)i + 1, s2.length());
-		i == std::string::npos ? flag = false : flag = true;
+		tmp = buf.substr(i + s1.length(), buf.length());
+		LOG << "\n"; 
+		// LOG << "TMP =>" << tmp; 
+		size_t j = tmp.find(av[2], i, std::string(av[2]).length());
+		newFile << s2 << tmp.substr(0, j);
+		if (j == std::string::npos)
+			break;
+		buf = buf.substr(i + s1.length(), buf.length());
+		LOG << "\nbuf =>" << buf;
+		i = buf.find(av[2], i, std::string(av[2]).length());
+		// if (i == std::string::npos)
+		// 	break;
+
 	}
+	newFile.close();
 	return 0;
 }

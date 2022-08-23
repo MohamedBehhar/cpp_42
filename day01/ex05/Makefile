@@ -5,20 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/23 17:18:05 by mbehhar           #+#    #+#              #
-#    Updated: 2022/08/23 17:18:06 by mbehhar          ###   ########.fr        #
+#    Created: 2022/08/23 17:22:35 by mbehhar           #+#    #+#              #
+#    Updated: 2022/08/23 18:36:53 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	replace
+NAME		=	harl
 
 CXX			=	c++
 
-CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXXFLAGS	=	 -std=c++98
 
 
 SRC			=	main.cpp \
-				utils.cpp \
+				Harl.cpp
 
 OBJ			=	$(SRC:%.cpp=%.o)
 
