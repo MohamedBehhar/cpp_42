@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 17:19:50 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/24 13:32:41 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/24 13:41:34 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/24 14:02:05 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,36 @@ void Harl::complain(std::string level)
 	funcAarr[1] = &Harl::info;
 	funcAarr[2] = &Harl::warning;
 	funcAarr[3] = &Harl::error;
+	int l = -1;
 	if (level == "DEBUG")
-		(harl.*funcAarr[0])();
+		l = 0;
 	else if (level == "INFO")
-		(harl.*funcAarr[1])();
+		l = 1;
 	else if (level == "WARNING")
-		(harl.*funcAarr[2])();
+		l = 2;
 	else if (level == "ERROR")
+		l = 3;
+
+	switch (l)
+	{
+	case 0:
+		LOG << "[DEBUG]" << N;
+		(harl.*funcAarr[0])();
+		LOG << N;
+	case 1:
+		LOG << "[INFO]" << N;
+		(harl.*funcAarr[1])();
+		LOG << N;
+	case 2:
+		LOG << "[WARNING]" << N;
+		(harl.*funcAarr[2])();
+		LOG << N;
+	case 3:
+		LOG << "[ERROR]" << N;
 		(harl.*funcAarr[3])();
+		LOG << N;
+		break;
+	default:
+		LOG << "[ Probably complaining about insignificant problems ]" << N;
+	}
 }

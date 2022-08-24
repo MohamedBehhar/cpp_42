@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/23 17:20:00 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/24 13:38:29 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/08/24 13:41:40 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/08/24 13:56:09 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_CPP
+#define HARL_CPP
 
-int main(){
-	Harl harl;
-	harl.complain("koko");
-	return (0);
-}
+#include <iostream>
+#define LOG std::cout
+#define N std::endl
+
+class Harl
+{
+private:
+	void debug(void);
+	void info(void);
+	void warning(void);
+	void error(void);
+
+public:
+	Harl(/* args */);
+	~Harl();
+	void complain(std::string level);
+};
+
+#endif

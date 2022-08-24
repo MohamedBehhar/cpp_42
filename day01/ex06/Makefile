@@ -6,11 +6,11 @@
 #    By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/23 17:22:35 by mbehhar           #+#    #+#              #
-#    Updated: 2022/08/24 12:53:42 by mbehhar          ###   ########.fr        #
+#    Updated: 2022/08/24 13:55:33 by mbehhar          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	harl
+NAME		=	harlFilter
 
 CXX			=	c++
 
