@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 18:44:28 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 15:32:10 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/25 14:17:55 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class Zombie{
 		std::string _name;
 	public:
 		Zombie();
+		Zombie(std::string name);
 		void setName(std::string name);
 		~Zombie();
 		void annouce(void);

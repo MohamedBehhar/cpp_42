@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:20:00 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/24 13:38:29 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/26 18:53:56 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int main(){
 	Harl harl;
-	harl.complain("koko");
+	harl.complain("WARNING");
 	return (0);
 }

@@ -6,46 +6,32 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/23 17:17:27 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/24 18:24:53 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/26 18:50:03 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace.h"
 #include <unistd.h>
-void findAndReplace(std::string big, std::string little)
-{
-	int i;
-	int j;
-
-	i = 0;
-	while (big[i])
-	{
-		j = 0;
-		while (big[i + j] == little[j] && little[j] && big[i + j])
-		{
-		}
-	}
-}
 
 int main(int ac, char *av[])
-{
-	std::fstream file;
+{	
 	// checking for errors
-	std::string fileName = av[1];
-	std::string s1 = av[2];
-	std::string s2 = av[3];
 	if (ac != 4)
 	{
 		LOG << "Invalid number of parametres" << N;
 		return (1);
 	}
+	std::string fileName = av[1];
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+	
 	if (s1.empty())
 	{
 		LOG << "Invalid parametres" << N;
 		return (1);
 	}
-	file.open(av[1], std::ios::in);
-	if (!file)
+	std::ifstream file(fileName);
+	if (file.is_open() == false)
 	{
 		LOG << "file error" << N;
 		return (1);
@@ -56,18 +42,15 @@ int main(int ac, char *av[])
 		LOG << "empty file" << N;
 		return (1);
 	}
-
 	// reading the file
 	std::string buf;
 	getline(file, buf, (char)EOF);
 	file.close();
-
 	// find and replace
-	std::fstream newFile;
-	newFile.open(fileName + ".replace", std::ios::out);
-	if (!file)
+	std::ofstream newFile(fileName + ".replace");
+	if (newFile.is_open() == false)
 	{
-		LOG << "file error 2" << N;
+		LOG << "file error" << N;
 		return (1);
 	}
 	size_t i;
@@ -83,7 +66,6 @@ int main(int ac, char *av[])
 			break;
 		newFile << s2;
 		buf = buf.substr(i + s1.length(), buf.length());
-		LOG << "buf=>" << buf << N;
 	}
 	return 0;
 }

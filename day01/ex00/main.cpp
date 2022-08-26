@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 18:51:59 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/20 15:57:08 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/25 14:05:03 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	Zombie zombie("MOHA");
+	Zombie zombie("MOHAMED");
 	zombie.annouce();
 	Zombie *ptrZombie;
 	ptrZombie = newZombie("NEW_ZOMBIE");

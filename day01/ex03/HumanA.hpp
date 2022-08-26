@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:11 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/21 18:49:44 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/26 15:18:20 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class HumanA
 {
 private:
 	std::string _name;
-	Weapon &_WeaponA;
+	Weapon& _WeaponA;
 
 public:
 	HumanA(std::string name, Weapon &weaponA);

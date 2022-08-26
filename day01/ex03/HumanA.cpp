@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 17:04:07 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/08/22 13:38:23 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/08/26 15:19:12 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 
 HumanA::~HumanA()
 {
-	// std::cout << "HUMAN_A Destructor has been called" << std::endl;
 }
 
-HumanA::HumanA(std::string name, Weapon &weaponA): _WeaponA(weaponA)
+HumanA::HumanA(std::string name, Weapon &weaponA):_name(name), _WeaponA(weaponA)
 {
-	_name = name;
-	// std::cout << "HUMAN_A Parametrized constructor has been called" << std::endl;
 }
 
 void HumanA::attack()
