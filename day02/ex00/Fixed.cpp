@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 17:48:14 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/07 18:09:53 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/08 18:03:48 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Fixed::Fixed(){
 	_left = 0;
 }
 
-Fixed::Fixed(const Fixed& ){
+Fixed::Fixed(const Fixed& other ){
 	std::cout << "copy constructor called" << '\n';
-	_left = 5;
+	_left = other._left;
 }
 
 Fixed::~Fixed(){
@@ -28,4 +28,8 @@ Fixed::~Fixed(){
 
 int Fixed::getRawBits(void)const {
 	return _left;
+}
+
+void Fixed::setRawBits( int const raw ){
+	_left = raw;
 }
