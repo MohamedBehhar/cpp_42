@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 17:51:24 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/08 18:44:10 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/09 14:18:49 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@
 class Fixed
 {
 private:
-	int					_left;
-	static const int	_right;
-	std::string 		_name;
+	int					_fixedPoint;
+	static const int	_fractional;
 public:
 	Fixed();
 	Fixed(const Fixed& other);
-	Fixed operator+(const Fixed rhs);
+	Fixed &operator=(const Fixed &rhs);
 	~Fixed();
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
