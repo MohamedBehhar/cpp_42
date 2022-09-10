@@ -15,7 +15,7 @@ class Human{
 		};
 		void operator= (const Human &rhs){
 			std::cout << "copy ass" << std::endl;
-			// delete this->_name;
+			delete this->_name;
 			this->_name =  new std::string(*(rhs._name));
 		};
 		~Human(){
