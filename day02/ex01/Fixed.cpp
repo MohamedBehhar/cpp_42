@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:34:07 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/10 18:19:18 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/11 13:09:47 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ Fixed::Fixed(const Fixed& other ){
 }
 
 //copy ass operator
-// Fixed &Fixed::operator= (const Fixed &rhs){
-// 	std::cout << "Copy assignment operator called" << '\n';
-// 	if (this == &rhs)
-// 		return (*this);
-// 	this->_fixedPoint = rhs.getRawBits();
-// 	return(*this);
-// }
+Fixed &Fixed::operator= (const Fixed &rhs){
+	std::cout << "Copy assignment operator called" << '\n';
+	if (this == &rhs)
+		return (*this);
+	this->_fixedPoint = rhs.getRawBits();
+	return(*this);
+}
 
 //<< overload
 std::ostream& operator << (std::ostream& output, const Fixed &fixed){
