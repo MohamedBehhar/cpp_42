@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/10 12:34:07 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/11 13:09:47 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/12 13:06:35 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Fixed::Fixed(const float floatVal){
 	std::cout << "Float constructor called" << '\n';
 	_fixedPoint =  roundf(floatVal * (1 << _fractional));
 }
+
 
 //copy const
 Fixed::Fixed(const Fixed& other ){

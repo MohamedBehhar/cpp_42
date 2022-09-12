@@ -4,42 +4,69 @@ class Human{
 	private:
 		std::string *_name;
 	public:
-		Human(){};
+		Human(){
+			_name = NULL;
+		}
 		Human(std::string name){
 			std::cout << "para" << std::endl;
 			_name = new std::string(name);
-		};
+		}
 		Human(const Human &other){
 			std::cout << "copy" << std::endl;
 			this->_name = new std::string(*(other._name));
-		};
+		}
 		void operator= (const Human &rhs){
 			std::cout << "copy ass" << std::endl;
-			delete this->_name;
+			if (!_name)
+				delete this->_name;
 			this->_name =  new std::string(*(rhs._name));
-		};
+		}
 		~Human(){
 			std::cout << "des" << std::endl;
-			delete _name;
-		};
-		void getName(void){
-			std::cout << *(_name) << std::endl;
-		};
+			if (!_name)
+				delete _name;
+		}
+		std::string getName(void){
+			// std::cout << *(_name) << std::endl;
+			return (*_name);
+		}
+};
+
+class Employ: public Human{
+	private:
+		std::string _func;
+	public:
+		Employ(){
+			_func = "";
+		}
+		Employ(std::string name) : Human(name)
+		{
+		}
+		void print()
+		{
+			std::cout << _func << std::endl;
+		}
 };
 
 int main(){
-	{
-		Human a("Ahmad");
-		Human b("ali");
-		a.getName();
-		b.getName();
-		a = b;
-		a.getName();
-		b.getName();
-	}
-	while (1)
-	{
-		/* code */
-	}
+
+	Employ a("ali");
+
+	std::cout << a.getName() << std::endl;
+
+	// {
+	// 	Human a;
+	// 	Human b = ("alal");
+	// 	b = a;
+	// 	// a.getName();
+	// 	// b.getName();
+	// 	// a = b;
+	// 	// a.getName();
+	// 	// b.getName();
+	// }
+	// while (1)
+	// {
+	// 	/* code */
+	// }
 	
 }
