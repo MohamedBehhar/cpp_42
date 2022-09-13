@@ -5,26 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 14:30:41 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/13 17:45:35 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/09/13 12:57:07 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/13 18:06:15 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(){
 	std::cout << "ClapTrap Default constructor called" << std::endl;
 	_name = "";
-	_hitPoints 		= 10;
-	_energyPoints 	= 10;
-	_attackDamage 	= 0;
 }
 
 ClapTrap::ClapTrap(std::string name){
 	std::cout << "ClapTrap Parameterized constructor called" << std::endl;
-	_hitPoints 		= 10;
-	_energyPoints 	= 10;
-	_attackDamage 	= 0;
 	_name = name;
 }
 
@@ -73,14 +68,6 @@ void ClapTrap::attack(const std::string& target){
 
 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (_hitPoints <=0 || amount > _hitPoints)
-	{
-		std::cout << "ClapTrap " << _name << " can't gets this attack " <<  "\n";
-		return ;
-		
-	}
-	std::cout << "***TACKING ATTACK***" << "\n";
-	std::cout << "Claptrap " << _name << " getting attacked" << "\n";
 	_hitPoints -= amount;
 }
 

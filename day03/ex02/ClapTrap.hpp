@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 14:36:12 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/13 12:21:06 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/09/13 12:57:17 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/13 18:08:08 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
@@ -17,7 +19,7 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string 	_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
@@ -37,7 +39,6 @@ public:
 	unsigned int getAttackDamage(void);
 	std::string getName(void);
 	unsigned int getHitPoints(void);
-	
 	void print();
 };
 
