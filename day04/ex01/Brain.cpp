@@ -19,9 +19,8 @@ Brain::Brain(){
 
 Brain::Brain(std::string &ideas){
 	std::cout << "Brain Parametrized constructor called\n";
-	// for (int i = 0; i < 100; i++)
-	// 	_ideas[i] = ideas;
-	_ideas = std::string(ideas);
+	for (int i = 0; i < 100; i++)
+		_ideas[i] = ideas;
 }
 
 Brain::Brain(const Brain &other){

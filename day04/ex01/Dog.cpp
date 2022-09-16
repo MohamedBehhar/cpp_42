@@ -15,6 +15,7 @@
 
 Dog::Dog():Animal("Dog"){
 	std::cout << "Dog Default Constructor called\n";
+	dogBrain = new Brain;
 }
 
 Dog::Dog(std::string &type):Animal(type){
@@ -30,13 +31,14 @@ Dog &Dog::operator= (const Dog &rhs){
 	return (*this);
 }
 
-Dog::Dog(const Dog &other){
+Dog::Dog(const Dog &other):Animal(){
 	std::cout << "Dog Copy constructor called" << '\n';
 	*this = other;
 }
 
 Dog::~Dog(){
 	std::cout << "Dog Destructor called" << '\n';
+	delete dogBrain;
 }
 
 //functions 

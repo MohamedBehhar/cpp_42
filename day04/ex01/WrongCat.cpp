@@ -21,7 +21,7 @@ WrongCat::WrongCat(const std::string &type):WrongAnimal(type){
 	std::cout << "WrongCat Parametrized Constructor called\n";
 }
 
-WrongCat::WrongCat(const WrongCat &other){
+WrongCat::WrongCat(const WrongCat &other):WrongAnimal(){
 	std::cout << "WrongCat Copy constructor called" << '\n';
 	*this = other;
 }

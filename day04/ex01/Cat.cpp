@@ -21,7 +21,7 @@ Cat::Cat(const std::string &type):Animal(type){
 	std::cout << "Cat Parametrized Constructor called\n";
 }
 
-Cat::Cat(const Cat &other){
+Cat::Cat(const Cat &other):Animal(){
 	std::cout << "Cat Copy constructor called" << '\n';
 	*this = other;
 }
@@ -36,9 +36,14 @@ Cat &Cat::operator= (const Cat &rhs){
 
 Cat::~Cat(){
 	std::cout << "Cat Destructor called" << '\n';
+	delete catBrain;
 }
 
 //functions 
 void Cat::makeSound()const {
 	std::cout << "Cat Mewos" << '\n';
+}
+
+void Cat::setIdeas(std::string &idea){
+	catBrain = new Brain(idea);
 }

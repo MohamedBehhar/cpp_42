@@ -14,15 +14,19 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat:virtual public Animal{
+	private:
+		Brain *catBrain;
 	public:
 		Cat();
 		Cat(const std::string &type);
 		Cat(const Cat &other);
 		Cat &operator= (const Cat &rhs);
 		void makeSound()const ;
-		~Cat();
+		void setIdeas(std::string &idea);
+		virtual~Cat();
 };
 
 #endif 

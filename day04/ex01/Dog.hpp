@@ -14,8 +14,11 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog:virtual public Animal{
+	private:
+		Brain *dogBrain;
 	public:
 		Dog();
 		Dog(std::string &type);
