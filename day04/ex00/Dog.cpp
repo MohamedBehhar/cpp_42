@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/16 13:20:08 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/16 13:20:09 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
 
-Dog::Dog(){
+Dog::Dog():Animal("Dog"){
 	std::cout << "Dog Default Constructor called\n";
 }
 
-Dog::Dog(std::string type):Animal(type){
+Dog::Dog(std::string &type):Animal(type){
+	std::cout << "type: " << type << std::endl;
 	std::cout << "Dog Parametrized Constructor called\n";
 }
 
@@ -27,6 +40,6 @@ Dog::~Dog(){
 }
 
 //functions 
-void Dog::makeSound(){
+void Dog::makeSound()const{
 	std::cout << "Dog Bark" << '\n';
 }

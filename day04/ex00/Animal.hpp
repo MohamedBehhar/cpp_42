@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/16 13:19:55 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/16 13:19:57 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ANIMAL_HPP
 #define ANIMAL_HPP
 
@@ -12,9 +24,9 @@ public:
 	Animal(const std::string &type);
 	Animal (const Animal &other);
 	Animal &operator= (const Animal &rhs);
-	std::string getType();
+	std::string getType()const;
 	~Animal();
-	virtual void makeSound();
+	virtual void makeSound()const;
 };
 
 #endif

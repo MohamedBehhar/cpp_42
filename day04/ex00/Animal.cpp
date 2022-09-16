@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/16 13:19:51 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/16 13:22:49 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal(){
@@ -26,11 +38,11 @@ Animal::~Animal(){
 }
 
 //functions
-void Animal::makeSound(){
-	std::cout << "animal make sound \n";
+void Animal::makeSound()const{
+	std::cout << "Animal make sound \n";
 }
 
 // getters
-std::string Animal::getType(){
+std::string Animal::getType()const{
 	return (_type);
 }
