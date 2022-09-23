@@ -42,7 +42,7 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs)
 	return (*this);
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &other)
+DiamondTrap::DiamondTrap(const DiamondTrap &other):ClapTrap(),ScavTrap(),FragTrap()
 {
 	std::cout << "DiamondTrap copy-constructor called" << std::endl;
 	*this = other;
