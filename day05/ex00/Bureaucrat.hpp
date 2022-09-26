@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 16:43:42 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/24 13:13:22 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/09/26 18:53:43 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/26 18:57:42 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_CPP
-#define SCAVTRAP_CPP
-#include "ClapTrap.hpp"
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
+#include <iostream>
 
-class ScavTrap:virtual public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &other);
-		ScavTrap &operator= (const ScavTrap &rhs);
-		void attack(const std::string& target);
-		~ScavTrap();
-		void guardGate();
+class Bureaucrat
+{
+private:
+	const std::string _name;
+	int _range;
+public:
+	Bureaucrat(/* args */);
+	Bureaucrat(const std::string& name, int range);
+	Bureaucrat(const Bureaucrat& other);
+	Bureaucrat &operator +(const Bureaucrat& rhs);
+	~Bureaucrat();
 };
+
+
+
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:20:00 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/26 18:28:06 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/26 16:27:02 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ Cat &Cat::operator= (const Cat &rhs){
 	std::cout << "Cat copy assignment operator called\n";
 	if (this != &rhs)
 	{
-		delete this->catBrain;
 		this->_type = rhs._type;
+		delete this->catBrain;
 		this->catBrain = new Brain;
 		*catBrain = *rhs.catBrain;
 	}

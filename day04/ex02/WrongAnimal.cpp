@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:20:30 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/26 12:44:41 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/16 13:28:35 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ WrongAnimal::~WrongAnimal(){
 
 //functions
 void WrongAnimal::makeSound()const{
-	std::cout << "Wrong animal make sound \n";
+	std::cout << "Wronganimal make sound \n";
 }
 
 // getters

@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:20:08 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/16 13:20:09 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/26 14:35:38 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Dog::Dog():Animal("Dog"){
 }
 
 Dog::Dog(std::string &type):Animal(type){
-	std::cout << "type: " << type << std::endl;
 	std::cout << "Dog Parametrized Constructor called\n";
 }
 

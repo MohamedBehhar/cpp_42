@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:45:06 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/14 19:20:20 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/24 17:36:40 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	std::cout << "ScavTrap Default constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
-	_attackDamage = 20;
+	_attackDamage = 30;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -25,7 +25,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	std::cout << "ScavTrap Parameterized constructor called" << std::endl;
 	_hitPoints = 100;
 	_energyPoints = 50;
-	_attackDamage = 20;
+	_attackDamage = 30;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs)
@@ -61,7 +61,6 @@ void ScavTrap::attack(const std::string &target)
 {
 	std::cout << "- - - - - ATTACKING- - - - -"
 			  << "\n";
-	std::cout << "ScavTrap " << _name;
 	if (_hitPoints == 0 || _energyPoints == 0)
 	{
 		std::cout << " no hit or energy Points left"
@@ -69,6 +68,6 @@ void ScavTrap::attack(const std::string &target)
 		return;
 	}
 	_energyPoints -= 1;
-	std::cout << " attacks " << target << " causing " << _attackDamage << " points of damage!"
+	std::cout << "This is an attack from ScavTrap to " << target << " causing " << _attackDamage << " points of damage!"
 			  << "\n";
 }

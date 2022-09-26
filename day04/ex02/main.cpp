@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 16:43:42 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/24 13:13:22 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/09/16 13:20:16 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/26 17:32:49 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_CPP
-#define SCAVTRAP_CPP
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-class ScavTrap:virtual public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &other);
-		ScavTrap &operator= (const ScavTrap &rhs);
-		void attack(const std::string& target);
-		~ScavTrap();
-		void guardGate();
-};
+int main()
+{
 
-#endif
+	Animal *cat = new Cat;
+	Animal *dog = new Dog;
+
+	std::cout << "****** Making sound ******\n";
+	cat->makeSound();
+	dog->makeSound();
+	std::cout << "****** Destruction ******\n";
+	delete cat;
+	delete dog;
+	return (0);
+}

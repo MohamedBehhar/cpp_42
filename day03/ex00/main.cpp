@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/12 14:53:33 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/13 18:01:17 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/24 14:42:48 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(){
 	nani.print();
 	moha.attack(nani.getName());
 	nani.takeDamage(moha.getAttackDamage());
-	nani.beRepaired(10);
 	moha.print();
 	nani.print();
 	return (0);

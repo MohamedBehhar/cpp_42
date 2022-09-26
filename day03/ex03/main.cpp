@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:57:23 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/24 12:23:16 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/24 17:42:56 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 int main(){
 	DiamondTrap moha("moha");
 	moha.whoAmI();
-	moha.print();
 	moha.attack("koko");
 	moha.takeDamage(10);
 	moha.print();

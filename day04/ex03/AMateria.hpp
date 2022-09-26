@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/13 16:43:42 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/24 13:13:22 by mbehhar          ###   ########.fr       */
+/*   Created: 2022/09/26 18:18:34 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/09/26 18:33:43 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_CPP
-#define SCAVTRAP_CPP
-#include "ClapTrap.hpp"
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
+#include <iostream>
 
-class ScavTrap:virtual public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap &other);
-		ScavTrap &operator= (const ScavTrap &rhs);
-		void attack(const std::string& target);
-		~ScavTrap();
-		void guardGate();
+
+class AMateria
+{
+protected:
+	std::string _type;
+public:
+	AMateria(/* args */);
+	AMateria(const std::string& type);
+	AMateria(const AMateria& other);
+	AMateria &operator +(const AMateria& rhs);
+	~AMateria();
 };
 
-#endif
+
+#endif 

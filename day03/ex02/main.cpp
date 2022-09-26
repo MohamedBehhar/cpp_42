@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 12:57:23 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/24 11:35:24 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/24 17:49:26 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int main(){
 	moha.print();
 	nani.print();
 	moha.attack(nani.getName());
+	nani.takeDamage(moha.getAttackDamage());
 	moha.highFivesGuys();
 	nani.print();
 	

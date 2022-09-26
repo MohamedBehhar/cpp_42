@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:20:16 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/09/16 14:28:27 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/09/26 18:27:11 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,40 @@
 int main()
 {
 
-	// Animal arrOfAnimal[10];
-	// for (int i = 0; i < 5; i++)
-	// 	arrOfAnimal[i] = Dog();
-	// for (int j = 5; j < 10; j++)
-	// 	arrOfAnimal[j] = Cat();
+	std::cout << "********* Dogs *********\n";
+	Animal *arrOfAnimal[10];
+	for (int i = 0; i < 5; i++)
+		arrOfAnimal[i] = new Dog();
+	std::cout << "********* Cats *********\n";
+	for (int j = 5; j < 10; j++)
+		arrOfAnimal[j] = new Cat();
 
-	// for (int i = 0; i < 10; i++)
-	// {
-	// 	delete
-	// }
+	std::cout << "********* Making Sound *********\n";
+	for (int i = 0; i < 10; i++)
+		arrOfAnimal[i]->makeSound();
 
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	delete j;
-	delete i;
+	std::cout << "********* Destructions *********\n";
+	for (int i = 0; i < 10; i++)
+	{
+		delete arrOfAnimal[i];
+	}
+
+	std::cout << "********* Deep copy *********\n";
+	Dog mimi("mimi");
+	Dog tom("tom");
+
+	std::cout << ">>> Name: " << tom.getType() << "\n";
+	tom = mimi;
+	std::cout << ">>> Name: " << tom.getType() << "\n";
+	std::cout << "******* leaks ********\n";
+	system("leaks Polymorphism");
+	std::cout << "******* Destructions ********\n";
+	Cat mimi("mimi");
+	Cat tom("tom");
+	mimi = tom;
+
+	std::cout << mimi.getType() << "\n";
+	system("leaks Polymorphism");
 
 	return (0);
 }
