@@ -18,16 +18,31 @@ class Bureaucrat
 {
 private:
 	const std::string _name;
-	int _range;
+	int _grade;
+
 public:
 	Bureaucrat(/* args */);
-	Bureaucrat(const std::string& name, int range);
-	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat &operator +(const Bureaucrat& rhs);
+	Bureaucrat(const std::string &name, int grade);
+	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat &operator=(const Bureaucrat &rhs);
 	~Bureaucrat();
+
+	class GradeTooHighException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	class GradeTooLowException : public std::exception
+	{
+		virtual const char *what() const throw();
+	};
+	
+	const std::string &getName() const;
+	int getGrade() const;
+	void setGrade(int grade);
+	void incrementGrade(void);
+	void decrementGrade(void);
 };
 
-
-
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
 
 #endif
