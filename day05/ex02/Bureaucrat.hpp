@@ -17,6 +17,7 @@
 #include "Form.hpp"
 
 class Form;
+
 class Bureaucrat
 {
 private:
@@ -45,7 +46,8 @@ public:
 	public:
 		const char *what() const throw();
 	};
-	void signForm(Form &form) const;
+	void signForm(const Form &form);
+	void executeForm(Form const &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);

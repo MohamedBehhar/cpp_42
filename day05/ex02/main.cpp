@@ -1,10 +1,11 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main()
 {
 	Bureaucrat superQaid("superQaid", 100);
-	Form chahada("chahada", 10, 8);
+	PresidentialPardonForm chahada("chahada");
 	try
 	{
 		superQaid.signForm(chahada);

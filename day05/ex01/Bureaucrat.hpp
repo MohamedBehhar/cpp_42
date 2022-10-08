@@ -14,6 +14,9 @@
 #define BUREAUCRAT_HPP
 #include <exception>
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -43,6 +46,7 @@ public:
 	public:
 		const char *what() const throw();
 	};
+	void signForm(const Form& form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);

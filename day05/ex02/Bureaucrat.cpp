@@ -40,11 +40,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
 	*this = other;
 }
 
-Bureaucrat::~Bureaucrat(){
+Bureaucrat::~Bureaucrat()
+{
 	std::cout << "Bureaucrat destructor called\n";
 }
 
-//exceptions
+// exceptions
 const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return "BureaucratException: Grade too High";
@@ -55,9 +56,9 @@ const char *Bureaucrat::GradeTooLowException::what() const throw()
 	return "BureaucratException: Grade too Low";
 }
 
-
-//getters
-const std::string &Bureaucrat::getName()const{
+// getters
+const std::string &Bureaucrat::getName() const
+{
 	return _name;
 }
 
@@ -66,14 +67,14 @@ int Bureaucrat::getGrade(void) const
 	return _grade;
 }
 
-//setters
+// setters
 void Bureaucrat::setGrade(int grade)
 {
+	this->_grade = grade;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	this->_grade = grade;
 }
 
 // increment decrement
@@ -90,7 +91,27 @@ void Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 }
 
+// signForm
+void Bureaucrat::signForm(const Form &form)
+{
+	if (form.getSignGrade() > this->getGrade())
+	{
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+		return;
+	}
+	std::cout << this->_name << " couldn’t sign " << form.getName() << " because " << " Form signing grade is higher than the bureacrat grade " << std::endl;
+}
 
+// excute form
+void Bureaucrat::executeForm(Form const &form){
+	if (form.getExecuteGrade() > this->_grade)
+	{
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+		return ;
+	}
+
+	std::cout << this->_name << " couldn’t excute " << form.getName() << " because " << " Form excuting grade is higher than the bureacrat grade " << std::endl;
+}
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
