@@ -84,21 +84,21 @@ void Converter::convert(){
 
 
 	d = strtod(toConvert.c_str(), &end);
-	if (end != NULL && (end[0] != '\0' && (end[0] != 'f' || strlen(end) != 1)))
+	if (end != NULL &&  (strlen(end) != 1 || (end[0] != '\0' && end[0] != 'f')))
 	{
 		std::cout << "invalid input, try again" << std::endl;
 		return ;
 	}
-	if (d > std::numeric_limits<char>::max() || d < std::numeric_limits<char>::min())
+	if (d > std::numeric_limits<char>::max() && d < std::numeric_limits<char>::min())
 		std::cout << "char: impossible" << std::endl;
 	else
 		printChar(static_cast <char>(d));
-	if (std::numeric_limits<int>::min() > d || std::numeric_limits<int>::max() < d)
+	if (d > std::numeric_limits<int>::max() && d < std::numeric_limits<int>::min())
 		std::cout << "int: impossible" << std::endl;
 	else
 		printInt(static_cast <int>(d));
-	if (std::numeric_limits<float>::min() > d || std::numeric_limits<float>::max() < d)
-		std::cout << "float: impossible" << std::endl;
+	if (d > std::numeric_limits<float>::max() && d < std::numeric_limits<float>::min() )
+		std::cout  << "float: impossible" << std::endl;
 	else
 		printFloat(static_cast <float>(d));
 	printDouble(d);

@@ -2,7 +2,7 @@
 #define SERIALIZATION_HPP
 #include <iostream>
 #include <string.h>
-#include <stdint.h>
+
 struct Data
 {
 	std::string name;

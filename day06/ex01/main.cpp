@@ -2,7 +2,7 @@
 #include <iostream>
 
 int main(){
-	Data *Walter = new Data("heisenberg", 65);
+	Data *Walter = new Data("heisenberg", 650);
 
 	std::cout << "=> Before serialization: \n" <<  Walter->name << " " << Walter->age << std::endl;
 
