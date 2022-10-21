@@ -28,4 +28,5 @@ int main()
 	iter(&str[2], 3, toUpper);
 	for (int i = 0; i < 5; i++)
 		std::cout << str[i] ;
+	return 0;
 }
