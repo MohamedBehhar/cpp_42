@@ -1,19 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Converter.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/22 09:44:46 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/10/22 09:55:18 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Converter.hpp"
 
 Converter::Converter()
 {
-	// std::cout << "Converter default constructor called\n";
 }
 
 Converter::Converter(std::string toConvert)
 {
-	// std::cout << "Converter parametrize constructor called\n";
 	this->toConvert = toConvert;
 }
 
 Converter::Converter(Converter const &src)
 {
-	std::cout << "Converter copy constructor called\n";
 	*this = src;
 }
 
@@ -28,7 +37,6 @@ Converter &Converter::operator=(Converter const &rhs)
 
 Converter::~Converter()
 {
-	// std::cout << "Converter  destructor called\n";
 }
 
 int Converter::checkPseudo()
@@ -84,7 +92,7 @@ void Converter::convert(){
 
 
 	d = strtod(toConvert.c_str(), &end);
-	if (end != NULL &&  (strlen(end) != 1 || (end[0] != '\0' && end[0] != 'f')))
+	if (end != NULL &&  (strlen(end) >= 1 && (end[0] != '\0' && end[0] != 'f')))
 	{
 		std::cout << "invalid input, try again" << std::endl;
 		return ;
