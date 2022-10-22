@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:30:41 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/10/22 11:30:42 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/10/22 14:46:19 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int main(void)
 {
 	int a = 2;
 	int b = 3;
-	std::cout << a << " " << b << std::endl;
 
 	::swap(a, b);
 	std::cout << "a = " << a << ", b = " << b << std::endl;

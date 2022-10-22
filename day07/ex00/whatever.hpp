@@ -6,7 +6,7 @@
 /*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 11:30:37 by mbehhar           #+#    #+#             */
-/*   Updated: 2022/10/22 11:30:38 by mbehhar          ###   ########.fr       */
+/*   Updated: 2022/10/22 14:47:18 by mbehhar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define WHATEVER_HPP
 #include <iostream>
 
-template <typename T> void swap(T a, T b)
+template <typename T> void swap(T &a, T &b)
 {
 	T tmp;
 	tmp = a;
