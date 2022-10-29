@@ -1,8 +1,34 @@
-#include "MutantStack.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/29 12:13:31 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/10/29 12:13:32 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "MutantStack.hpp"
+#include <list>
+#include <iostream>
 int main()
 {
-	MutantStack<int>mstack;
+	std::cout << "---- my test ----" << std::endl;
+	MutantStack<std::string> strStack;
+	strStack.push("hello");
+	strStack.push("from");
+	strStack.push("the");
+	strStack.push("other");
+	strStack.push("side");
+
+	MutantStack<std::string>::iterator itr;
+	for (itr = strStack.begin(); itr != strStack.end(); itr++)
+		std::cout << *itr << std::endl;
+
+	std::cout << "---- subject test ----" << std::endl;
+	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;

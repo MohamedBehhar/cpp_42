@@ -1,17 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/29 12:08:51 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/10/29 12:08:52 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
 #include <iostream>
-#include <iterator>
-template<typename T>
+#include <algorithm>
+
+template <typename T>
 std::string easyfind(T &container, int toFind)
 {
-	typename T::const_iterator it;
-	for (it = container.begin(); it != container.end(); it++)
-		if (*it == toFind)
-			return ("Element found");
+	if (std::find(container.begin(), container.end(), toFind) != container.end())
+		return ("Element found");
 	return ("Element not found");
-
 }
 
 #endif

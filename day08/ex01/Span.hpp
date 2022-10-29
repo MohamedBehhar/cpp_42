@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mbehhar <mbehhar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/29 12:10:56 by mbehhar           #+#    #+#             */
+/*   Updated: 2022/10/29 12:11:35 by mbehhar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 #define SPAN_HPP
 
@@ -6,8 +18,6 @@
 #include <stdexcept>
 #include <iostream>
 #include <algorithm>
-#include <math.h>
-#include <stdint.h>
 
 class Span
 {
@@ -23,8 +33,9 @@ public:
 	~Span();
 
 	void addNumber(int num);
-	size_t shortestSpan(void) const;
-	size_t longestSpan(void) const;
+	void addManyNumber(std::vector<int>::iterator bg, std::vector<int>::iterator end);
+	int shortestSpan(void) const;
+	int longestSpan(void) const;
 
 	class FullException : public std::exception
 	{
