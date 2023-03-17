@@ -20,8 +20,8 @@ private:
 	char *db_file;
 	typedef struct input
 	{
-		std::string date;
-		std::string val;
+		std::string _date;
+		std::string _val;
 		input(std::string date, std::string val);
 		~input();
 	}input;

@@ -46,23 +46,19 @@ std::string removeWhiteSpace(std::string input)
 
 void BitcoinExchange::fill_map(std::string buf)
 {
+	if (buf == "date | value")
+		return;
 	std::string arr[2];
 	splitString(buf, "|", arr);
-	// print(arr[0]);
-	// print(" - ");
-	// print(arr[1]);
-	// print("\n");
-	input data(arr[0], arr[1]);
-	s_input.push_back(data);
+	s_input.push_back(input(arr[0], arr[1]));
 	_input[removeWhiteSpace(arr[0])] = (arr[1]);
 }
 
 // input //
 BitcoinExchange::input::input(std::string date, std::string val)
 {
-	print("hel");
-	print(date);
-
+	_date = date;
+	_val = val;
 }
 BitcoinExchange::input::~input()
 {
@@ -73,7 +69,7 @@ void BitcoinExchange::fill_db_map(std::string buf)
 	std::string arr[2];
 	splitString(buf, ",", arr);
 
-	_db[(arr[0])] = atol(arr[1].c_str());
+	_db[removeWhiteSpace((arr[0]))] = atol(arr[1].c_str());
 }
 
 void splitDate(const std::string &str, const std::string &sep, std::string arr[])
@@ -97,9 +93,9 @@ bool print_in_error(std::string str, bool flag)
 bool bad_input_msg(std::string date)
 {
 	std::string msg = "";
-	msg = BAD_INPUT;
+	msg += BAD_INPUT;
 	msg += date + '\n';
-	return print_in_error(date, true);
+	return print_in_error(msg, true);
 }
 
 bool check_date(std::string arr[], std::string date)
@@ -111,13 +107,6 @@ bool check_date(std::string arr[], std::string date)
 	year = atol(arr[0].c_str());
 	mounth = atol(arr[1].c_str());
 	day = atol(arr[2].c_str());
-	// print("|");
-	// print(year);
-	// print("|");
-	// print(mounth);
-	// print("|");
-	// print(day);
-	// print("|\n");
 	if (year == 2009 && mounth == 1 && day < 2)
 		print_in_error("Error: Date not found on data base\n", true);
 	if (year == 2022 && mounth == 3 && day > 29)
@@ -125,6 +114,8 @@ bool check_date(std::string arr[], std::string date)
 	if (year < 2009 || mounth < 0 || day < 0)
 		return bad_input_msg(date);
 	// sana kabissa
+	if (mounth > 12)
+		return bad_input_msg(date);
 	if (mounth == 2)
 		if (year % 4 != 0 && day > 28)
 			return bad_input_msg(date);
@@ -134,22 +125,26 @@ bool check_date(std::string arr[], std::string date)
 	return false;
 }
 
+void find_val(std::string )
+
 void BitcoinExchange::check_input()
 {
-	std::map<std::string, std::string>::iterator it = _input.begin();
-	while (it != _input.end())
+	// std::map<std::string, std::string>::iterator it = _input.begin();
+	std::list<BitcoinExchange::input>::iterator it = s_input.begin();
+
+	while (it != s_input.end())
 	{
 		std::string arr[3];
-		splitDate(it->first, "-", arr);
-		check_date(arr, it->first);
+		splitDate(it->_date, "-", arr);
+		// check_date(arr, it->_date);
 		// for (size_t i = 0; i < 3; i++)
 		// {
 		// 	print(arr[0]);
 		// 	print(" - ");
 		// }
 
-		// if (check_date(arr, it->first ))
-		// it++;
+		if (check_date(arr, it->_date))
+			it++;
 		/// find date and value
 		it++;
 	}
@@ -175,18 +170,15 @@ BitcoinExchange::BitcoinExchange(char *in, const char *db)
 	std::string db_buf;
 	while (getline(db_file, db_buf, '\n'))
 		fill_db_map(db_buf);
-	// check_input();
-	input data();
-	std::string h , a;
-	h = "hello";
-	a  = "koko";
-	std::list<BitcoinExchange::input>::iterator it = s_input.begin();
+	check_input();
 
-	while (it != s_input.end())
-	{
-		std::cout << "key:1 " << it->date << "value: " << it->val << std::endl;
-		it++;
-	}
+	// std::list<BitcoinExchange::input>::iterator it = s_input.begin();
+
+	// while (it != s_input.end())
+	// {
+	// 	std::cout << "key:1 |" << it->_date << "|value: " << it->_val << std::endl;
+	// 	it++;
+	// }
 	// std::map<std::string, int>::iterator itr = _db.begin();
 	// while (itr != _db.end())
 	// {
@@ -205,7 +197,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &rhs)
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
 {
-	std::cout << "Animal Copy constructor called" << '\n';
+	std::cout << "BitcoinExchange Copy constructor called" << '\n';
 	*this = src;
 }
 
