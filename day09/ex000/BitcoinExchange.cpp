@@ -50,8 +50,9 @@ void BitcoinExchange::fill_map(std::string buf)
 		return;
 	std::string arr[2];
 	splitString(buf, "|", arr);
-	s_input.push_back(input(arr[0], arr[1]));
-	_input[removeWhiteSpace(arr[0])] = (arr[1]);
+	return check_input(removeWhiteSpace(arr[0]), arr[1]);
+	// s_input.push_back(input(arr[0], arr[1]));
+	// _input[removeWhiteSpace(arr[0])] = (arr[1]);
 }
 
 // input //
@@ -68,8 +69,11 @@ void BitcoinExchange::fill_db_map(std::string buf)
 {
 	std::string arr[2];
 	splitString(buf, ",", arr);
+	float val = 0;
+	if (arr[1] != "exchange_rate")
+		val = std::stof(arr[1]);
 
-	_db[removeWhiteSpace((arr[0]))] = atol(arr[1].c_str());
+	_db[removeWhiteSpace((arr[0]))] = val;
 }
 
 void splitDate(const std::string &str, const std::string &sep, std::string arr[])
@@ -98,11 +102,11 @@ bool bad_input_msg(std::string date)
 	return print_in_error(msg, true);
 }
 
-bool check_date(std::string arr[], std::string date)
+bool check_date_val(std::string arr[], std::string date, std::string val)
 {
 	std::string msg = "";
-	// if (arr[0] == "" || arr[1] == "" || arr[2] == "")
-	// 	return bad_input_msg(date);
+	if (arr[0] == "" || arr[1] == "" || arr[2] == "")
+		return bad_input_msg(date);
 	long year, mounth, day;
 	year = atol(arr[0].c_str());
 	mounth = atol(arr[1].c_str());
@@ -124,48 +128,73 @@ bool check_date(std::string arr[], std::string date)
 			return bad_input_msg(date);
 	return false;
 }
-
- {
-
+void BitcoinExchange::found_close_date(std::string date)
+{
 
 }
-void BitcoinExchange::find_val(std::string date)
+
+bool BitcoinExchange::find_val(std::string date, std::string val, float num)
 {
-		print(date);
-	std::map<std::string, int>::iterator it =  _db.find(date);
+
+	std::map<std::string, float>::iterator it = _db.find(date);
 	if (it != _db.end())
 	{
-		print(date);
-		print('\n');
+		print(date + " => " + val + " = ");
+		print(num * it->second);
+		print("\n");
 	}
-	else{
-		found_close_date(date);
+	else
+	{
+		std::map<std::string, float>::iterator it = _db.upper_bound(date);
+		it--;
+		print(date + " => " + val + " = ");
+		print(num * it->second);
+		print("\n");
 	}
+	return false;
 }
 
-void BitcoinExchange::check_input()
+void BitcoinExchange::check_input(std::string date, std::string val)
 {
 	// std::map<std::string, std::string>::iterator it = _input.begin();
-	std::list<BitcoinExchange::input>::iterator it = s_input.begin();
+	float num = 0;
 
-	while (it != s_input.end())
+	if (val != "")
 	{
-		std::string arr[3];
-		splitDate(it->_date, "-", arr);
-		// check_date(arr, it->_date);
-		// for (size_t i = 0; i < 3; i++)
-		// {
-		// 	print(arr[0]);
-		// 	print(" - ");
-		// }
-
-		if (check_date(arr, it->_date))
-			it++;
-		if (it == s_input.end())
-			break;
-		find_val(it->_date);
-		it++;
+		num = std::stof(val);
+		if (num < 0)
+		{
+			print("Error: not a positive number.\n");
+			return;
+		}
+		if (num > 1000)
+		{
+			print("Error: too large a number.\n");
+			return;
+		}
 	}
+	std::string arr[3];
+	splitDate(date, "-", arr);
+	if (check_date_val(arr, date, val))
+		return;
+	if (find_val(date, val, num))
+		return;
+	// std::list<BitcoinExchange::input>::iterator it = s_input.begin();
+	// while (it != s_input.end())
+	// {
+	// 	// check_date(arr, it->_date);
+	// 	// for (size_t i = 0; i < 3; i++)
+	// 	// {
+	// 	// 	print(arr[0]);
+	// 	// 	print(" - ");
+	// 	// }
+
+	// 	it++;
+	// 	if (it == s_input.end())
+	// 		break;
+	// 	find_val(it->_date);
+	// 	it++;
+	// }
 }
 
 BitcoinExchange::BitcoinExchange(char *in, const char *db)
@@ -175,9 +204,6 @@ BitcoinExchange::BitcoinExchange(char *in, const char *db)
 		print_and_exit("input file error");
 	if (file.peek() == EOF)
 		print_and_exit("input file is empty");
-	std::string buf;
-	while (getline(file, buf, '\n'))
-		fill_map(buf);
 
 	// fill db info
 	std::ifstream db_file(db);
@@ -188,7 +214,12 @@ BitcoinExchange::BitcoinExchange(char *in, const char *db)
 	std::string db_buf;
 	while (getline(db_file, db_buf, '\n'))
 		fill_db_map(db_buf);
-	check_input();
+
+	// read input file and prse each string
+	std::string buf;
+	while (getline(file, buf, '\n'))
+		fill_map(buf);
+	// check_input();
 
 	// std::list<BitcoinExchange::input>::iterator it = s_input.begin();
 

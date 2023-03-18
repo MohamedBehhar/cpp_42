@@ -10,7 +10,7 @@
 #include <list>
 
 #define BAD_INPUT "Error: bad input => ";
-#define NOT_POSITIVE "Error: not a positive number.";
+#define NOT_POSITIVE "Error: not a positive number.\n";
 #define LARGE_NUM "Error: too large a number.";
 
 class BitcoinExchange
@@ -24,12 +24,11 @@ private:
 		std::string _val;
 		input(std::string date, std::string val);
 		~input();
-	}input;
+	} input;
 
 	std::list<input> s_input;
 
-	std::map<std::string, int> _db;
-	std::map<std::string, std::string> _input;
+	std::map<std::string, float> _db;
 
 public:
 	BitcoinExchange();
@@ -40,10 +39,10 @@ public:
 
 	void fill_map(std::string buf);
 	void fill_db_map(std::string buf);
-	void check_input();
-	void find_val(std::string);
+	void check_input(std::string date, std::string val);
+	bool find_val(std::string date, std::string val ,float num);
 	std::map<std::string, int> split_db();
-	
+
 	void found_close_date(std::string date);
 };
 
