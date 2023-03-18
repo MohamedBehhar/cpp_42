@@ -41,7 +41,10 @@ public:
 	void fill_map(std::string buf);
 	void fill_db_map(std::string buf);
 	void check_input();
+	void find_val(std::string);
 	std::map<std::string, int> split_db();
+	
+	void found_close_date(std::string date);
 };
 
 template <typename T>

@@ -125,7 +125,23 @@ bool check_date(std::string arr[], std::string date)
 	return false;
 }
 
-void find_val(std::string )
+ {
+
+
+}
+void BitcoinExchange::find_val(std::string date)
+{
+		print(date);
+	std::map<std::string, int>::iterator it =  _db.find(date);
+	if (it != _db.end())
+	{
+		print(date);
+		print('\n');
+	}
+	else{
+		found_close_date(date);
+	}
+}
 
 void BitcoinExchange::check_input()
 {
@@ -145,7 +161,9 @@ void BitcoinExchange::check_input()
 
 		if (check_date(arr, it->_date))
 			it++;
-		/// find date and value
+		if (it == s_input.end())
+			break;
+		find_val(it->_date);
 		it++;
 	}
 }
