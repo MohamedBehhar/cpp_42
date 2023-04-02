@@ -1,16 +1,16 @@
-NAME		=	btc
+NAME		=	RPN
 
 CXX			=	c++
 
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
-SRC			=	BitcoinExchange.cpp  
+SRC			=	RPN.cpp  
 
 
 OBJ			=	$(SRC:%.cpp=%.o)
 
 
-%.o:%.cpp BitcoinExchange.hpp
+%.o:%.cpp RPN.hpp
 	$(CXX)  -c $< -o $@
 
 all : $(NAME)

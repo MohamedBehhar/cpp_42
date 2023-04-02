@@ -2,29 +2,51 @@
 
 int main(int ac, char *av[])
 {
-	std::string givingFile;
+	(void)av;
 	if (ac != 2)
 	{
-		perror("insufisant arguments");
-		return(EXIT_FAILURE);
+		std::cout << "Missing file" << std::endl;
+		return 1;
 	}
-	givingFile = av[1];
-	std::ifstream file(givingFile);
+	const char *db = "data.csv";
+	BitcoinExchange obj(av[1], db);
+
+	/////////// reading the input file //////////////////
+	std::string givingFile = av[1];
+	std::ifstream file(av[1]);
 	if (file.is_open() == false)
 	{
-		perror("file error");
-		return(EXIT_FAILURE);
+		print("input file error");
+		return (1);
 	}
 	// checking if the file is empty
 	if (file.peek() == EOF)
 	{
-		perror("file is empty");
-		return(EXIT_FAILURE);
+		print("input file is empty");
+		return (1);
 	}
 	// reading the file
 	std::string buf;
 	getline(file, buf, (char)EOF);
 	file.close();
-	std::cout << buf << std::endl;
+	/////////// db file //////////////////
+	std::string dbFile = "data.csv";
+	std::ifstream fileDb(dbFile.c_str());
+	if (fileDb.is_open() == false)
+	{
+		print("db file error");
+		return (1);
+	}
+	// checking if the file is empty
+	if (fileDb.peek() == EOF)
+	{
+		print("db file is empty");
+		return (1);
+	}
+	// reading the file
+	std::string bufdb;
+	getline(fileDb, bufdb, (char)EOF);
+	fileDb.close();
+
 	return 0;
 }
