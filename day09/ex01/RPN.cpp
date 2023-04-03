@@ -34,7 +34,7 @@ std::vector<std::string> splitString(const std::string &str, char delimiter)
 
 void check_error(std::vector<std::string> vec)
 {
-    std::string oper = "+-*/";
+  std::string oper = "+-*/";
   for (int i = 0; i < vec.size(); i++)
   {
     if (isdigit(vec[i][0]))
@@ -53,29 +53,46 @@ void check_error(std::vector<std::string> vec)
   }
 }
 
-int doOperation(int a, int b, std::string op)
+int doOperation(int a, int b, char op)
 {
-  if (op == "+")
+  if (op == '+')
     return a + b;
-  else if (op == "-")
+  else if (op == '-')
     return a - b;
-  else if (op == "*")
+  else if (op == '*')
     return a * b;
-  else if (op == "/")
+  else if (op == '/')
     return a / b;
   return 0;
 }
 
+void RPN::check_num_and_push(std::string num)
+{
+  if (atoi(num.c_str()) > 9)
+  {
+    std::cout << "Error: num > 10 or < 0\n";
+    exit(1);
+  }
+  else
+    _stack.push(atoi(num.c_str()));
+}
+
 void RPN::parse()
 {
-  std::vector<std::string> arr = splitString(_str, ' ');
-  check_error(arr);
   std::string oper = "+-*/";
-  for (size_t i = 0; i < arr.size(); i++)
+  std::string num = "";
+  for (size_t i = 0; _str[i]; i++)
   {
-    if ((oper.find(arr[i]) != std::string::npos) == false)
+    while (_str[i] && isdigit(_str[i]))
     {
-      _stack.push(atoi(arr[i].c_str()));
+      num += _str[i];
+      i++;
+    }
+    if (oper.find(_str[i]) == std::string::npos)
+    {
+      if (num != "")
+        check_num_and_push(num);
+      num = "";
     }
     else
     {
@@ -88,8 +105,9 @@ void RPN::parse()
       _stack.pop();
       int a = _stack.top();
       _stack.pop();
-      _stack.push(doOperation(a, b, arr[i]));
+      _stack.push(doOperation(a, b, _str[i]));
     }
   }
   std::cout << _stack.top() << std::endl;
 }
+

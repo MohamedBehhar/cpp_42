@@ -20,6 +20,7 @@ public:
 	RPN(RPN const &src);
 	RPN &operator=(RPN const &rhs);
 	void fill_stack();
+	void check_num_and_push(std::string num);
 	void parse();
 };
 
