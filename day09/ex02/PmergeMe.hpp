@@ -15,6 +15,9 @@ private:
 	std::vector<int> beforeSort;
 	std::deque<int> dequeNumbers;
 	clock_t vec_start;
+	clock_t vec_end;
+	clock_t deque_start;
+	clock_t deque_end;
 
 public:
 	PmergeMe();
@@ -27,6 +30,9 @@ public:
 	void mergeSort(std::vector<int> &numbers, std::string indent);
 	void merge(std::vector<int> &left, std::vector<int> &right, std::vector<int> &numbers);
 	void printNumbers();
+	void mergeSortDeque(std::deque<int> &numbers, std::string indent);
+	void mergeSortDeque();
+	void mergeDeque(std::deque<int> &left, std::deque<int> &right, std::deque<int> &numbers);
 	void printOutput();
 };
 bool isDigit(std::string str);

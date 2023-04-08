@@ -23,6 +23,7 @@ int main(int ac, char *av[])
 		pmergeMe.addNumber(atoi(av[i]));
 	}
 	pmergeMe.mergeSort();
+	pmergeMe.mergeSortDeque();
 	pmergeMe.printOutput();
 	return 0;
 }
