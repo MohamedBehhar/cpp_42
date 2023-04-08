@@ -20,13 +20,12 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-
 BitcoinExchange::BitcoinExchange(char *in, const char *db)
 {
-	// check input file 
+	// check input file
 	std::ifstream file(in);
 	if (file.is_open() == false)
-		print_and_exit("Error: could not open file.");
+		print_and_exit("Error: could not open file");
 	if (file.peek() == EOF)
 		print_and_exit("Error: input file is empty");
 
@@ -45,7 +44,6 @@ BitcoinExchange::BitcoinExchange(char *in, const char *db)
 	while (getline(file, buf, '\n'))
 		check_each_line(buf);
 }
-
 
 void splitString(std::string str, std::string sep, std::string arr[])
 {
@@ -106,14 +104,23 @@ void BitcoinExchange::check_each_line(std::string buf)
 	return check_input(removeWhiteSpace(arr[0]), arr[1]);
 }
 
-
 void BitcoinExchange::fill_db_map(std::string buf)
 {
 	std::string arr[2];
 	splitString(buf, ",", arr);
 	float val = 0;
 	if (arr[1] != "exchange_rate")
-		val = std::stof(arr[1]);
+	{
+		try
+		{
+			val = std::stof(arr[1]);
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << "Error on database file" << '\n';
+			exit(EXIT_FAILURE);
+		}
+	}
 
 	_db[removeWhiteSpace((arr[0]))] = val;
 }
@@ -121,7 +128,7 @@ void BitcoinExchange::fill_db_map(std::string buf)
 void BitcoinExchange::splitDate(const std::string &str, const std::string &sep, std::string arr[])
 {
 	int count = 0;
-	for (size_t i = 0; str[i] != '\0' ; i++)
+	for (size_t i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] == sep[0])
 			count++;
@@ -131,7 +138,7 @@ void BitcoinExchange::splitDate(const std::string &str, const std::string &sep, 
 		arr[0] = "";
 		arr[1] = "";
 		arr[2] = "";
-		return ;
+		return;
 	}
 	std::stringstream ss(str);
 	std::string token;
@@ -157,6 +164,11 @@ bool bad_input_msg(std::string date)
 	return print_in_error(msg, true);
 }
 
+bool db_nfound_msg(std::string date)
+{
+	return print_in_error("Error: date not found on database => " + date + '\n', true);
+}
+
 bool is_number(std::string str)
 {
 	for (int i = 0; i < str.length(); i++)
@@ -179,9 +191,9 @@ bool BitcoinExchange::check_date_val(std::string arr[], std::string date, std::s
 	mounth = atol(arr[1].c_str());
 	day = atol(arr[2].c_str());
 	if (year == 2009 && mounth == 1 && day < 2)
-		print_in_error("Error: Date not found on data base\n", true);
+		return db_nfound_msg(date);
 	if (year == 2022 && mounth == 3 && day > 29)
-		print_in_error("Error: Date not found on data base\n", true);
+		return db_nfound_msg(date);
 	if (year < 2009 || mounth < 0 || day < 0)
 		return bad_input_msg(date);
 	// sana kabissa
@@ -198,7 +210,6 @@ bool BitcoinExchange::check_date_val(std::string arr[], std::string date, std::s
 			return bad_input_msg(date);
 	return false;
 }
-
 
 bool BitcoinExchange::find_val(std::string date, std::string val, float num)
 {
@@ -246,6 +257,3 @@ void BitcoinExchange::check_input(std::string date, std::string val)
 	if (find_val(date, val, num))
 		return;
 }
-
-
-

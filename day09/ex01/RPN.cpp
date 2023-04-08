@@ -20,39 +20,6 @@ RPN::RPN(RPN const &src)
 
 RPN::~RPN() {}
 
-std::vector<std::string> splitString(const std::string &str, char delimiter)
-{
-  std::vector<std::string> result;
-  std::stringstream ss(str);
-  std::string token;
-  while (getline(ss, token, delimiter))
-  {
-    result.push_back(token);
-  }
-  return result;
-}
-
-void check_error(std::vector<std::string> vec)
-{
-  std::string oper = "+-*/";
-  for (int i = 0; i < vec.size(); i++)
-  {
-    if (isdigit(vec[i][0]))
-    {
-      if (atoi(vec[i].c_str()) < 0 || atoi(vec[i].c_str()) > 9)
-      {
-        std::cout << "Error" << std::endl;
-        exit(1);
-      }
-    }
-    else if (oper.find(vec[i]) == std::string::npos)
-    {
-      std::cout << "Error" << std::endl;
-      exit(1);
-    }
-  }
-}
-
 int doOperation(int a, int b, char op)
 {
   if (op == '+')
@@ -107,6 +74,11 @@ void RPN::parse()
       _stack.pop();
       _stack.push(doOperation(a, b, _str[i]));
     }
+  }
+  if (_stack.size() > 1)
+  {
+    std::cout << "Error: Too many operands" << std::endl;
+    exit(1);
   }
   std::cout << _stack.top() << std::endl;
 }
